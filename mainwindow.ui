@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Medienverleih</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>141</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Ausgeliehe Medien</string>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="tableWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>40</y>
+      <width>781</width>
+      <height>461</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="neueAusleihe">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>510</y>
+      <width>121</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Neue Ausleihe</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuMedien">
+    <property name="title">
+     <string>Medien</string>
+    </property>
+    <addaction name="actionBuecher_verwalten"/>
+    <addaction name="actionFilme_verwalten"/>
+   </widget>
+   <widget class="QMenu" name="menuPersonen">
+    <property name="title">
+     <string>Personen</string>
+    </property>
+    <addaction name="actionPersonen_verwalten"/>
+   </widget>
+   <widget class="QMenu" name="menuSpeichern">
+    <property name="title">
+     <string>Datei</string>
+    </property>
+    <addaction name="actionSpeichern"/>
+    <addaction name="actionOeffnen"/>
+   </widget>
+   <addaction name="menuSpeichern"/>
+   <addaction name="menuMedien"/>
+   <addaction name="menuPersonen"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionPersonen_verwalten">
+   <property name="text">
+    <string>Personen verwalten</string>
+   </property>
+  </action>
+  <action name="actionBuecher_verwalten">
+   <property name="text">
+    <string>Buecher verwalten</string>
+   </property>
+  </action>
+  <action name="actionFilme_verwalten">
+   <property name="text">
+    <string>Filme verwalten</string>
+   </property>
+  </action>
+  <action name="actionSpeichern">
+   <property name="text">
+    <string>Speichern</string>
+   </property>
+  </action>
+  <action name="actionOeffnen">
+   <property name="text">
+    <string>Öffnen</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
