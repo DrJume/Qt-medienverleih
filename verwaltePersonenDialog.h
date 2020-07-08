@@ -7,6 +7,7 @@
 #include <vector>
 #include "Medium.h"
 #include "Person.h"
+#include "verwalteDatenTabelle.h"
 
 namespace Ui {
 class VerwaltePersonenDialog;
@@ -19,20 +20,29 @@ class VerwaltePersonenDialog : public QDialog
 public:
     explicit VerwaltePersonenDialog(QWidget *parent = nullptr);
     ~VerwaltePersonenDialog();
-    void setTableData(std::vector<Person>&);
+    void setTableData(std::vector<Person>* personen);
     std::vector<Person>* personen;
+    void selectionMode(Person **selection);
 
 private slots:
-    void on_buttonBox_accepted();
+    void on_modalButtons_accepted();
 
     void on_neuePerson_clicked();
 
-    void contextMenuEvent(QContextMenuEvent *event);
+    void on_personenTable_cellDoubleClicked(int row, int column);
 
-    void deleteRow();
+    void handleCellChange(int row, int col);
+
+
+    void personenTableContextMenu(const QPoint& pos);
 
 private:
     Ui::VerwaltePersonenDialog *ui;
+    bool isSelectionMode;
+    Person** selection;
+
+    void deletePerson(int row);
+
 };
 
 #endif // VERWALTEPERSONENDIALOG_H

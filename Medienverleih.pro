@@ -16,26 +16,34 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    AusleihVerwaltung.cpp \
+    Ausleihe.cpp \
     Buch.cpp \
+    Daten.cpp \
     Film.cpp \
     Medium.cpp \
     Person.cpp \
     main.cpp \
-    mainwindow.cpp \
+    mainWindowAusleihen.cpp \
+    verwalteDatenTabelle.cpp \
     verwalteMedienDialog.cpp \
     verwaltePersonenDialog.cpp
 
 HEADERS += \
+    AusleihVerwaltung.h \
+    Ausleihe.h \
     Buch.h \
+    Daten.h \
     Film.h \
     Medium.h \
     Person.h \
-    mainwindow.h \
+    mainWindowAusleihen.h \
+    verwalteDatenTabelle.h \
     verwalteMedienDialog.h \
     verwaltePersonenDialog.h
 
 FORMS += \
-    mainwindow.ui \
+    mainWindowAusleihen.ui \
     verwalteMedienDialog.ui \
     verwaltePersonenDialog.ui
 

@@ -13,12 +13,15 @@ Medium::Medium(std::string inventarNr, std::string titel, int wert) {
 }
 
 std::string Medium::serialize() const {
-    return this->inventarNr + ";" + this->getType() + ";" + this->titel + ";" + std::to_string(this->wert);
+    return std::string(1, this->getType()) + ";" + this->inventarNr + ";" + this->titel + ";" + std::to_string(this->wert);
 }
 
 Medium Medium::deserialize(std::string data) {
     size_t pos = 0;
-    std::string token;
+
+    pos = data.find(";");
+    std::string medienType = data.substr(0, pos);
+    data.erase(0, pos+1);
 
     pos = data.find(";");
     std::string inventarNr = data.substr(0, pos);
@@ -32,4 +35,11 @@ Medium Medium::deserialize(std::string data) {
     int wert = std::stoi(data.substr(0, pos));
 
     return Medium(inventarNr, titel, wert);
+}
+
+Medium* Medium::findMedium(std::vector<Medium*> *medien, std::string id) {
+    for (std::vector<Medium*>::iterator it = medien->begin(); it != medien->end(); ++it) {
+        if ((*it)->getID() == id) return *it;
+    }
+    return NULL;
 }

@@ -44,3 +44,10 @@ Person Person::deserialize(std::string data) {
 
     return Person(bibNr, vorname, nachname, geburtsJahr);
 }
+
+Person* Person::findPerson(std::vector<Person> *personen, std::string id) {
+    for (std::vector<Person>::iterator it = personen->begin(); it != personen->end(); ++it) {
+        if (it->getID() == id) return &(*it);
+    }
+    return NULL;
+}

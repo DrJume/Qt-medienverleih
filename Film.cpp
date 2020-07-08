@@ -6,7 +6,13 @@ Film::Film() {
     this->altersfreigabe=0;
 }
 
-Film::Film(std::string invNr, std::string titel, int wert, std::string regisseur, int dauer, int altersfreigabe) : Medium(invNr, titel, wert) {
+Film::Film(const Film& film) : Medium(film.getInventarNr(), film.getTitel(), film.getWert()) {
+    this->regisseur=film.regisseur;
+    this->dauer=film.dauer;
+    this->altersfreigabe=film.altersfreigabe;
+}
+
+Film::Film(std::string inventarNr, std::string titel, int wert, std::string regisseur, int dauer, int altersfreigabe) : Medium(inventarNr, titel, wert) {
     this->regisseur=regisseur;
     this->dauer=dauer;
     this->altersfreigabe=altersfreigabe;
@@ -28,7 +34,10 @@ std::string Film::serialize() const {
 
 Film Film::deserialize(std::string data) {
     size_t pos = 0;
-    std::string token;
+
+    pos = data.find(";");
+    std::string medienType = data.substr(0, pos);
+    data.erase(0, pos+1);
 
     pos = data.find(";");
     std::string invNr = data.substr(0, pos);
@@ -40,6 +49,7 @@ Film Film::deserialize(std::string data) {
 
     pos = data.find(";");
     int wert = std::stoi(data.substr(0, pos));
+    data.erase(0, pos+1);
 
     pos = data.find(";");
     std::string regisseur = data.substr(0, pos);
@@ -47,6 +57,7 @@ Film Film::deserialize(std::string data) {
 
     pos = data.find(";");
     int dauer = std::stoi(data.substr(0, pos));
+    data.erase(0, pos+1);
 
     pos = data.find(";");
     int altersfreigabe = std::stoi(data.substr(0, pos));

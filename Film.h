@@ -11,7 +11,8 @@ class Film : public Medium {
 
 public:
     Film();
-    Film(std::string invNr, std::string titel, int wert, std::string regisseur, int dauer, int altersfreigabe);
+    Film(const Film& film);
+    Film(std::string inventarNr, std::string titel, int wert, std::string regisseur, int dauer, int altersfreigabe);
     std::string getRegisseur() const { return this->regisseur;}
     void setRegisseur(std::string regisseur) { this->regisseur=regisseur;}
     int getDauer() const { return this->dauer; }
@@ -19,7 +20,7 @@ public:
     int getAltersfreigabe() const { return this->altersfreigabe; }
     void setAltersfreigabe(int altersfreigabe);
     char getType() const { return MediumTypes::FILM; }
-    std::string serialize() const;
+    virtual std::string serialize() const;
     static Film deserialize(std::string data);
 };
 

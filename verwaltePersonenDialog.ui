@@ -16,23 +16,23 @@
   <property name="windowTitle">
    <string>Personen</string>
   </property>
-  <widget class="QDialogButtonBox" name="buttonBox">
+  <widget class="QDialogButtonBox" name="modalButtons">
    <property name="geometry">
     <rect>
-     <x>360</x>
+     <x>370</x>
      <y>290</y>
-     <width>171</width>
-     <height>32</height>
+     <width>161</width>
+     <height>25</height>
     </rect>
    </property>
    <property name="orientation">
     <enum>Qt::Horizontal</enum>
    </property>
    <property name="standardButtons">
-    <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+    <set>QDialogButtonBox::Cancel|QDialogButtonBox::Save</set>
    </property>
   </widget>
-  <widget class="QTableWidget" name="personenTable">
+  <widget class="VerwalteDatenTabelle" name="personenTable">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -56,10 +56,17 @@
    </property>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>VerwalteDatenTabelle</class>
+   <extends>QTableWidget</extends>
+   <header location="global">verwalteDatenTabelle.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections>
   <connection>
-   <sender>buttonBox</sender>
+   <sender>modalButtons</sender>
    <signal>rejected()</signal>
    <receiver>VerwaltePersonenDialog</receiver>
    <slot>reject()</slot>

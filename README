@@ -1,0 +1,9 @@
+Benoetigt QT5!
+
+sudo apt install qt5-default
+
+Kompilieren:
+
+$ qmake (optional)
+$ make
+$ ./Medienverleih

@@ -1,9 +1,13 @@
 #ifndef PERSON_H
 #define PERSON_H
 
-#include <string>
+#include "Daten.h"
 
-class Person {
+
+#include <string>
+#include <vector>
+
+class Person : public Daten {
     std::string bibNr;
     std::string vorname;
     std::string nachname;
@@ -20,8 +24,9 @@ public:
     void setNachname(std::string nachname) { this->nachname=nachname; }
     int getGeburtsJahr() const { return this->geburtsJahr; }
     void setGeburtsJahr(int geburtsJahr);
-    std::string serialize() const;
+    virtual std::string serialize() const;
     static Person deserialize(std::string data);
+    static Person* findPerson(std::vector<Person> *personen, std::string id);
 };
 
 #endif // PERSON_H

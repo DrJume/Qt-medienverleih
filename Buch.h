@@ -13,7 +13,8 @@ class Buch : public Medium
 
 public:
     Buch();
-    Buch(std::string invNr, std::string titel, int wert, std::string author, std::string verlag, int seiten);
+    Buch(const Buch& buch);
+    Buch(std::string inventarNr, std::string titel, int wert, std::string author, std::string verlag, int seiten);
     std::string getAuthor() const { return this->author; }
     void setAuthor(std::string author) { this->author=author;}
     std::string getVerlag() const { return this->verlag; }
@@ -21,7 +22,7 @@ public:
     int getSeiten() const { return this->seiten; }
     void setSeiten(int seiten);
     char getType() const { return MediumTypes::BUCH; }
-    std::string serialize() const;
+    virtual std::string serialize() const;
     static Buch deserialize(std::string data);
 };
 
