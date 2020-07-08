@@ -4,6 +4,6 @@ sudo apt install qt5-default
 
 Kompilieren:
 
-$ qmake (optional)
+$ qmake
 $ make
 $ ./Medienverleih
